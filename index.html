@@ -17,6 +17,27 @@
           "labels": "_fp.event.PageView"
       });
   </script>
+
+  <script type="text/javascript">
+      window._qevents = window._qevents || [];
+      function getLoggedInEmail() {
+          return "user@domain.com"
+      }
+      function isUserLoggedIn() {
+          // custom logic to identify if user is logged in
+          return false;
+      }
+
+      var loggedIn = isUserLoggedIn();
+      if (loggedIn) {
+          // extra label in case user is logged in
+          window._qevents.push({
+              "qacct": "p-nCxyCMLLfeMbY",
+              "labels": "audience.loggedin"
+              "uid": getLoggedInEmail()
+          });
+      }
+  </script>
   <!-- End Quantcast tag -->
 </head>
 <html>
