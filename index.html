@@ -28,8 +28,7 @@
           return false;
       }
 
-      var loggedIn = isUserLoggedIn();
-      if (loggedIn) {
+      if (isUserLoggedIn()) {
           // extra label in case user is logged in
           window._qevents.push({
               "qacct": "p-nCxyCMLLfeMbY",
