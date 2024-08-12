@@ -11,32 +11,27 @@
           var scpt = document.getElementsByTagName('script')[0];
           scpt.parentNode.insertBefore(elem, scpt);
       })();
-  
-      window._qevents.push({
-          "qacct": "p-nCxyCMLLfeMbY",
-          "labels": "_fp.event.PageView"
-      });
-  </script>
 
-  <script type="text/javascript">
-      window._qevents = window._qevents || [];
-      function getLoggedInEmail() {
-          return "user@domain.com";
-      }
       function isUserLoggedIn() {
-          // custom logic to identify if user is logged in
+          // Customer determines if user is considered loggedin
+          // with their own custom logic.
           return false;
       }
 
+      var qcLabels = "_fp.event.PageView";
+      var qcUid = null
+    
       if (isUserLoggedIn()) {
-          // extra label in case user is logged in
-          window._qevents.push({
-              "qacct": "p-nCxyCMLLfeMbY",
-              "labels": "audience.loggedin",
-              "uid": getLoggedInEmail()
-          });
+          qcLabels = labels + "," + "_fp.event.loggedin"
+          qcUid = "abcd@wxy.com"
       }
+      window._qevents.push({
+          "qacct": "p-nCxyCMLLfeMbY",
+          "labels": qcLabels,
+          "uid": qcuid
+      });
   </script>
+
   <!-- End Quantcast tag -->
 </head>
 <html>
